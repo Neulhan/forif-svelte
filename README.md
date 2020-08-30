@@ -20,7 +20,7 @@ Svelte는 자신을 ‘프레임워크가 없는 프레임워크’ 혹은 ‘�
 
 svelte 의 등장 이전에 웹 프론트엔드 생태계에는 js frontend framework 삼대장이 존재했습니다.
 
-[https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F99A0664A5D00AF1A2B1FC5](https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F99A0664A5D00AF1A2B1FC5)
+![https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F99A0664A5D00AF1A2B1FC5](https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F99A0664A5D00AF1A2B1FC5)
 
 프론트엔드 삼대장 React, Angluar, Vue 입니다.
 
