@@ -5,7 +5,7 @@
 
 <div class="container">
   <section>
-    <h1>2번째: attribute</h1>
+    <h1>#2 attribute</h1>
     <a href={googleURL}>구글 링크</a>
     <a {href}>네이버 링크</a>
   </section>

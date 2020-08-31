@@ -8,7 +8,7 @@
 
 <div class="container">
   <section>
-    <h1>1번째: variable</h1>
+    <h1>#1 variable</h1>
     <p>{firstVariable + '님, 안녕하세요'}</p>
     <p>{firstVariable}님, 안녕하세요</p>
   </section>

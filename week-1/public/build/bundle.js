@@ -358,7 +358,7 @@ var app = (function () {
     			div = element("div");
     			section = element("section");
     			h10 = element("h1");
-    			h10.textContent = "6번째: InputBinding";
+    			h10.textContent = "#6 InputBinding";
     			t1 = space();
     			input0 = element("input");
     			t2 = space();
@@ -372,11 +372,11 @@ var app = (function () {
     			t7 = text("px");
     			add_location(h10, file, 7, 4, 95);
     			attr_dev(input0, "type", "text");
-    			add_location(input0, file, 9, 4, 127);
-    			add_location(h11, file, 10, 4, 171);
+    			add_location(input0, file, 9, 4, 125);
+    			add_location(h11, file, 10, 4, 169);
     			attr_dev(input1, "type", "number");
-    			add_location(input1, file, 12, 4, 192);
-    			add_location(h12, file, 13, 4, 240);
+    			add_location(input1, file, 12, 4, 190);
+    			add_location(h12, file, 13, 4, 238);
     			add_location(section, file, 6, 2, 81);
     			attr_dev(div, "class", "container");
     			add_location(div, file, 5, 0, 55);

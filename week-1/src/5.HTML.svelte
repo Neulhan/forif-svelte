@@ -4,7 +4,7 @@
 
 <div class="container">
   <section>
-    <h1>5번째: HTML</h1>
+    <h1>#5 HTML</h1>
     <div>{aTag}</div>
     <div>
       {@html aTag}
