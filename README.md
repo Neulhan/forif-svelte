@@ -2,17 +2,25 @@
 
 ![](image/svelte-homepage.png)
 
+## 주차 별 계획
+
+- 1주차: 구글 폰트 사이트 클론 코딩
+- 2주차: 디지털/아날로그 타이머 만들기
+- 3주차: TODO 리스트 만들기
+- 4주차: 하노이의 탑 만들기
+- 5주차: 술자리 유형테스트 https://dailyshot-test.firebaseapp.com/
+
 # Svelte 란?
 
 ![https://daveceddia.com/images/intro-to-svelte.png](https://daveceddia.com/images/intro-to-svelte.png)
 
 [Svelte(스벨트)](https://svelte.dev/)는 NewYorkTimes의 [Rich Harris](https://twitter.com/rich_harris)가 제작한 새로운 접근 방식을 가지는 프론트엔드 프레임워크로,
 
-2019년 8월에 version3로 공개되었습니다.
+2019년 8월에 version3가 공개되었습니다.
 
 Svelte는 자신을 ‘프레임워크가 없는 프레임워크’ 혹은 ‘컴파일러’라고 소개합니다.
 
-2019년에 제대로 이목을 끌게된 프레임워크 이지만 벌써 github star 수가 3만 6천에 이를 정도로, 웹 프론트엔드 세계에서 주목하고 있는 트렌디한 프레임워크입니다.
+version3 가 공개되면서 제대로 이목을 끌게된 프레임워크 이지만 벌써 github star 수가 3만 6천에 이를 정도로, 웹 프론트엔드 세계에서 주목하고 있는 트렌디한 프레임워크입니다.
 
 ### 무엇이 svelte 를 이렇게 관심받을 수 있게 한걸까?
 
