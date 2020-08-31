@@ -11,12 +11,14 @@
 
 <div class="container">
   <section>
-    <h1>1번째: variable</h1>
+    <h1>#1 variable</h1>
     <p>{firstVariable + '님, 안녕하세요'}</p>
     <p>{firstVariable}님, 안녕하세요</p>
   </section>
 </div>
 ```
+
+`{}`로 감싸진 내부는 javascript 문법과 선언된 변수들 사용 가능
 
 ## 1.2 Attribute (속성)
 
@@ -28,12 +30,15 @@
 
 <div class="container">
   <section>
-    <h1>2번째: attribute</h1>
+    <h1>#2 attribute</h1>
     <a href="{googleURL}">구글 링크</a>
     <a {href}>네이버 링크</a>
   </section>
 </div>
 ```
+
+첫 번째 예시처럼 사용할 때 `" "`는 선택사항  
+변수명과 attribute 이름이 같다면 2번째 예시처럼 생략 가능
 
 ## 1.3 Class & Style
 
@@ -61,7 +66,7 @@
 
 <div class="container">
   <section>
-    <h1>3번째: class</h1>
+    <h1>#3 class</h1>
     <div class={color}>파란색</div>
     <div class:blue={color === 'red'}>파란색</div>
     <div class:yellow>파란색</div>
@@ -69,6 +74,8 @@
 </div>
 
 ```
+
+세 번째 예시처럼 주고 싶은 class 이름과 변수명이 같으면 생략가능
 
 ## 1.4 Component
 
@@ -84,6 +91,8 @@
 <Third />
 ```
 
+`import` 해온 컴포넌트의 이름은 대문자로 시작해야함
+
 ## 1.5 HTML
 
 ```html
@@ -93,7 +102,7 @@
 
 <div class="container">
   <section>
-    <h1>5번째: HTML</h1>
+    <h1>#5 HTML</h1>
     <div>{aTag}</div>
     <div>{@html aTag}</div>
   </section>
@@ -110,7 +119,7 @@
 
 <div class="container">
   <section>
-    <h1>6번째: InputBinding</h1>
+    <h1>#6 InputBinding</h1>
 
     <input type="text" bind:value="{text}" />
     <h1>{text}</h1>
