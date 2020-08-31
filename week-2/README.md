@@ -1,104 +1,259 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# 2주차 스터디
 
----
+## 2.1 Event Listener
 
-# svelte app
+```html
+<script>
+  let count = 0;
+  let scroll = 0;
+  const client = {
+    x: 0,
+    y: 0,
+  };
+  const add = () => {
+    count++;
+  };
+  const minus = () => {
+    count--;
+  };
+  const scrollNow = (e) => {
+    scroll = e.target.scrollTop;
+  };
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+  const mouseNow = (e) => {
+    client.x = e.clientX;
+    client.y = e.clientY;
+  };
+</script>
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+<style>
+  .wrapper {
+    display: flex;
+  }
+  article {
+    width: 200px;
+    height: 200px;
+  }
+  .click {
+    background-color: #fafafa;
+  }
+  .scroll {
+    overflow: auto;
+  }
+  .scroll > span {
+    color: red;
+    font-weight: 700;
+  }
+  .mouse-move {
+    background-color: #888;
+  }
+  .location {
+    color: white;
+  }
+</style>
 
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
+<div class="container">
+  <section>
+    <h1>#1. Event Listener</h1>
+
+    <div class="wrapper">
+      <article class="click">
+        <p>{count}</p>
+        <button on:click="{add}">+</button>
+        <button on:click="{minus}">-</button>
+      </article>
+
+      <article class="scroll" on:scroll="{scrollNow}">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit dolores
+        at aperiam ullam, quidem dignissimos inventore animi tempora eum amet in
+        vel consequuntur totam quisquam sequi ipsum fugit qui itaque rerum
+        assumenda praesentium possimus.
+        <span>{scroll}</span>
+        Repellendus accusamus odio commodi laudantium adipisci! Illum sunt
+        placeat dignissimos, libero quidem nam ea suscipit aspernatur facere
+        corrupti accusamus sit, nesciunt, voluptatem odit! Aliquid, sequi
+        officia.
+      </article>
+
+      <article class="mouse-move" on:mousemove="{mouseNow}">
+        <div class="location">X: {client.x} Y; {client.y}</div>
+      </article>
+    </div>
+  </section>
+</div>
 ```
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+`on:이벤트이름={핸들러함수}` 를 통해서 이벤트를 할당 가능
 
+## 2.2 Reactivity Declaration
 
-## Get started
+```html
+<script>
+  let count = 0;
+  $: double = count * 2;
+</script>
 
-Install the dependencies...
+<style>
 
-```bash
-cd svelte-app
-npm install
+</style>
+
+<div class="container">
+  <section>
+    <h1>#2 Reactivity Declaration</h1>
+    <p>{count}</p>
+    <p>{double}</p>
+    <button
+      on:click={() => {
+        count++;
+      }}>
+      +
+    </button>
+  </section>
+</div>
+
 ```
 
-...then start [Rollup](https://rollupjs.org):
+`$` 문법을 통해 Vue 에서의 computed와 유사하게 사용이 가능  
+반응형으로 변수를 선언
 
-```bash
-npm run dev
+## 2.3 Reactivity Statements
+
+```html
+<script>
+  let count = 0;
+  $: double = count * 2;
+  $: console.log(count);
+  $: if (count >= 7) {
+    alert("초과!");
+    count = 0;
+  }
+  $: for (let i = 0; i < count; i++) {
+    console.log("for", i);
+  }
+</script>
+
+<style>
+
+</style>
+
+<div class="container">
+  <section>
+    <h1>#3 Reactivity Statements</h1>
+    <p>{count}</p>
+    <p>{double}</p>
+    <button
+      on:click={() => {
+        count++;
+      }}>
+      +
+    </button>
+  </section>
+</div>
+
 ```
 
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
+`$` 뒤에 코드를 작성하면 해당 스코프 내에서 사용된 변수의 변화에 반응하여 동작함
 
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
+## 2.4 Reactivity Array
 
+```html
+<script>
+  let arr = [];
+  let count = 0;
 
-## Building and running in production mode
+  $: {
+    arr.push(count);
+    // arr = arr;
+    console.log(arr);
+  }
 
-To create an optimised version of the app:
+  $: sum = arr.reduce((acc, crv) => acc + crv, 0);
+  $: sub = arr.reduce((acc, crv) => acc - crv, 0);
 
-```bash
-npm run build
+  const add = () => {
+    count++;
+  };
+</script>
+
+<style></style>
+
+<div class="container">
+  <section>
+    <h1>#4 Reactivity Array</h1>
+    <p>{arr.join(' + ')} = {sum}</p>
+    <p>{arr.join(' - ')} = {sub}</p>
+    <button on:click="{add}">{count}</button>
+  </section>
+</div>
 ```
 
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
+`Array`가 `push` 함수를 통해 변화한 경우에는 `$`가 감지를 못함  
+이런 경우에는 해당 `Array` 재할당해주는 방식으로 사용해야함
 
+## 2.5 Props
 
-## Single-page app mode
+```html
+<!-- 5.1.Props.svelte  -->
+<script>
+  import Child from "./5.2.Child.svelte";
+</script>
 
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
+<style>
+  .wrapper {
+    display: flex;
+  }
+</style>
 
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
+<div class="container">
+  <section>
+    <h1>#5 Props</h1>
+    <div class="wrapper">
+      <Child />
+      <Child color="white" />
+      <Child backgroundColor="gold" />
+      <Child color="white" backgroundColor="gold" />
+    </div>
+  </section>
+</div>
 
-```js
-"start": "sirv public --single"
+<!-- 5.2.Child.svelte -->
+<script>
+  export let color;
+  export let backgroundColor = "red";
+</script>
+
+<style>
+  .element {
+    width: 200px;
+    height: 200px;
+    font-size: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+</style>
+
+<div
+  class="element"
+  style="background-color: {backgroundColor}; color: {color};"
+>
+  안녕
+</div>
 ```
 
-## Using TypeScript
+# 2주차 스터디 과제
 
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
-
-```bash
-node scripts/setupTypeScript.js
+```
+60초 타이머 만들기 (물리)
 ```
 
-Or remove the script via:
+![](../image/스크린샷%202020-08-31%20오후%2011.13.18.png)
 
-```bash
-rm scripts/setupTypeScript.js
-```
+### 필수 사항
 
-## Deploying to the web
-
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```
+- 디지털 시계 부분에 브라우저를 새로고침하면 0이되는 시간초 나타내는 숫자 판을 만들어주세요.
+- 타이머 설정하기 부분에는 + 버튼과 - 버튼이 있습니다. 각 버튼을 누르면 위에서 만든 디지털 시계 부분에 1초씩 추가 / 삭제 됩니다. 다만 0초 이상이어야 하고 60초 미만이어야 합니다.
+- 시작 버튼이 있습니다. 시작을 누르면 시작 버튼과 + - 버튼은 disabled 상태가 되고, 시간초를 나타내는 부분이 1초에 1씩 감소합니다. 0이 되면 정지합니다. 정지되면 disabled가 풀립니다.
+- 아날로그 타이머를 만들어보세요. 틀은 동그랗고 초침만 있으면 됩니다.
+- 아날로그 타이머는 별도 컴포넌트로 분리해서 만들어보세요.

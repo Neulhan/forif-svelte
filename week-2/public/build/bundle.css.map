@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "5.1.Props.svelte",
+    "5.2.Child.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  import Child from \"./5.2.Child.svelte\";\n</script>\n\n<style>\n  .wrapper {\n    display: flex;\n  }\n</style>\n\n<div class=\"container\">\n  <section>\n    <h1>#5 Props</h1>\n    <div class=\"wrapper\">\n      <Child />\n      <Child color=\"white\" />\n      <Child backgroundColor=\"gold\" />\n      <Child color=\"white\" backgroundColor=\"gold\" />\n    </div>\n  </section>\n</div>\n",
+    "<script>\n  export let color;\n  export let backgroundColor = \"red\";\n</script>\n\n<style>\n  .element {\n    width: 200px;\n    height: 200px;\n    font-size: 32px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-right: 20px;\n  }\n</style>\n\n<div\n  class=\"element\"\n  style=\"background-color: {backgroundColor}; color: {color};\">\n  안녕\n</div>\n"
+  ],
+  "names": [],
+  "mappings": "AAKE,QAAQ,eAAC,CAAC,AACR,OAAO,CAAE,IAAI,AACf,CAAC;ACDD,QAAQ,eAAC,CAAC,AACR,KAAK,CAAE,KAAK,CACZ,MAAM,CAAE,KAAK,CACb,SAAS,CAAE,IAAI,CACf,OAAO,CAAE,IAAI,CACb,eAAe,CAAE,MAAM,CACvB,WAAW,CAAE,MAAM,CACnB,YAAY,CAAE,IAAI,AACpB,CAAC"
+}
