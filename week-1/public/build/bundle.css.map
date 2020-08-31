@@ -1,16 +1,8 @@
 {
   "version": 3,
   "file": "bundle.css",
-  "sources": [
-    "3.Class.svelte",
-    "3.ClassnStyle.svelte",
-    "App.svelte"
-  ],
-  "sourcesContent": [
-    "<script>\n  let color = \"red\";\n\n  let yellow = true;\n</script>\n\n<style>\n  .red {\n    color: red;\n  }\n  .blue {\n    color: blue;\n  }\n  .yellow {\n    color: yellow;\n  }\n  :global(.yellow) {\n    color: hotpink;\n  }\n</style>\n\n<div class=\"container\">\n  <section>\n    <h1>3번째: class</h1>\n    <div class={color}>파란색</div>\n    <div class:blue={color === 'red'}>파란색</div>\n    <div class:yellow>파란색</div>\n  </section>\n</div>\n",
-    "<script>\n  let color = \"red\";\n\n  let yellow = true;\n</script>\n\n<style>\n  .red {\n    color: red;\n  }\n  .blue {\n    color: blue;\n  }\n  .yellow {\n    color: yellow;\n  }\n  :global(.yellow) {\n    color: hotpink;\n  }\n</style>\n\n<div class=\"container\">\n  <section>\n    <h1>3번째: class</h1>\n    <div class={color}>파란색</div>\n    <div class:blue={color === 'red'}>파란색</div>\n    <div class:yellow>파란색</div>\n  </section>\n</div>\n",
-    "<script>\n  let firstVariable = \"신한결\";\n\n  const googleURL = \"https://www.google.com\";\n  const href = \"https://www.google.com\";\n</script>\n\n<style>\n  .container {\n    padding: 160px;\n  }\n  section {\n    width: 100%;\n    height: 600px;\n    background-color: #eee;\n    box-sizing: border-box;\n    padding: 40px;\n    margin-bottom: 200px;\n  }\n</style>\n\n<div class=\"container\">\n  <section>\n    <h1>1번째: variable</h1>\n    <p>{firstVariable + '님, 안녕하세요'}</p>\n    <p>{firstVariable}님, 안녕하세요</p>\n  </section>\n  <section>\n    <h1>2번째: attribute</h1>\n    <a href={googleURL}>구글 링크</a>\n    <a {href}>구글 링크</a>\n  </section>\n  <section>\n    <h1>3번째: class</h1>\n    <p>파란색</p>\n  </section>\n  <section>\n    <h1>4번째</h1>\n  </section>\n  <section>\n    <h1>5번째</h1>\n  </section>\n  <section>\n    <h1>6번째</h1>\n  </section>\n</div>\n"
-  ],
+  "sources": [],
+  "sourcesContent": [],
   "names": [],
-  "mappings": "AAOE,IAAI,eAAC,CAAC,AACJ,KAAK,CAAE,GAAG,AACZ,CAAC,AACD,KAAK,eAAC,CAAC,AACL,KAAK,CAAE,IAAI,AACb,CAAC,AACD,OAAO,eAAC,CAAC,AACP,KAAK,CAAE,MAAM,AACf,CAAC,AACO,OAAO,AAAE,CAAC,AAChB,KAAK,CAAE,OAAO,AAChB,CAAC;ACXD,IAAI,eAAC,CAAC,AACJ,KAAK,CAAE,GAAG,AACZ,CAAC,AACD,KAAK,eAAC,CAAC,AACL,KAAK,CAAE,IAAI,AACb,CAAC,AACD,OAAO,eAAC,CAAC,AACP,KAAK,CAAE,MAAM,AACf,CAAC,AACO,OAAO,AAAE,CAAC,AAChB,KAAK,CAAE,OAAO,AAChB,CAAC;ACVD,UAAU,cAAC,CAAC,AACV,OAAO,CAAE,KAAK,AAChB,CAAC,AACD,OAAO,cAAC,CAAC,AACP,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,KAAK,CACb,gBAAgB,CAAE,IAAI,CACtB,UAAU,CAAE,UAAU,CACtB,OAAO,CAAE,IAAI,CACb,aAAa,CAAE,KAAK,AACtB,CAAC"
+  "mappings": ""
 }

@@ -56,6 +56,9 @@ var app = (function () {
         else if (node.getAttribute(attribute) !== value)
             node.setAttribute(attribute, value);
     }
+    function to_number(value) {
+        return value === '' ? undefined : +value;
+    }
     function children(element) {
         return Array.from(element.childNodes);
     }
@@ -336,10 +339,17 @@ var app = (function () {
     	let section;
     	let h10;
     	let t1;
-    	let input;
+    	let input0;
     	let t2;
     	let h11;
     	let t3;
+    	let t4;
+    	let input1;
+    	let t5;
+    	let h12;
+    	let t6_value = (/*number*/ ctx[1] === undefined ? 0 : /*number*/ ctx[1]) + "";
+    	let t6;
+    	let t7;
     	let mounted;
     	let dispose;
 
@@ -350,17 +360,26 @@ var app = (function () {
     			h10 = element("h1");
     			h10.textContent = "6번째: InputBinding";
     			t1 = space();
-    			input = element("input");
+    			input0 = element("input");
     			t2 = space();
     			h11 = element("h1");
     			t3 = text(/*text*/ ctx[0]);
-    			add_location(h10, file, 6, 4, 77);
-    			attr_dev(input, "type", "text");
-    			add_location(input, file, 7, 4, 108);
-    			add_location(h11, file, 8, 4, 152);
-    			add_location(section, file, 5, 2, 63);
+    			t4 = space();
+    			input1 = element("input");
+    			t5 = space();
+    			h12 = element("h1");
+    			t6 = text(t6_value);
+    			t7 = text("px");
+    			add_location(h10, file, 7, 4, 95);
+    			attr_dev(input0, "type", "text");
+    			add_location(input0, file, 9, 4, 127);
+    			add_location(h11, file, 10, 4, 171);
+    			attr_dev(input1, "type", "number");
+    			add_location(input1, file, 12, 4, 192);
+    			add_location(h12, file, 13, 4, 240);
+    			add_location(section, file, 6, 2, 81);
     			attr_dev(div, "class", "container");
-    			add_location(div, file, 4, 0, 37);
+    			add_location(div, file, 5, 0, 55);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -370,30 +389,47 @@ var app = (function () {
     			append_dev(div, section);
     			append_dev(section, h10);
     			append_dev(section, t1);
-    			append_dev(section, input);
-    			set_input_value(input, /*text*/ ctx[0]);
+    			append_dev(section, input0);
+    			set_input_value(input0, /*text*/ ctx[0]);
     			append_dev(section, t2);
     			append_dev(section, h11);
     			append_dev(h11, t3);
+    			append_dev(section, t4);
+    			append_dev(section, input1);
+    			set_input_value(input1, /*number*/ ctx[1]);
+    			append_dev(section, t5);
+    			append_dev(section, h12);
+    			append_dev(h12, t6);
+    			append_dev(h12, t7);
 
     			if (!mounted) {
-    				dispose = listen_dev(input, "input", /*input_input_handler*/ ctx[1]);
+    				dispose = [
+    					listen_dev(input0, "input", /*input0_input_handler*/ ctx[2]),
+    					listen_dev(input1, "input", /*input1_input_handler*/ ctx[3])
+    				];
+
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*text*/ 1 && input.value !== /*text*/ ctx[0]) {
-    				set_input_value(input, /*text*/ ctx[0]);
+    			if (dirty & /*text*/ 1 && input0.value !== /*text*/ ctx[0]) {
+    				set_input_value(input0, /*text*/ ctx[0]);
     			}
 
     			if (dirty & /*text*/ 1) set_data_dev(t3, /*text*/ ctx[0]);
+
+    			if (dirty & /*number*/ 2 && to_number(input1.value) !== /*number*/ ctx[1]) {
+    				set_input_value(input1, /*number*/ ctx[1]);
+    			}
+
+    			if (dirty & /*number*/ 2 && t6_value !== (t6_value = (/*number*/ ctx[1] === undefined ? 0 : /*number*/ ctx[1]) + "")) set_data_dev(t6, t6_value);
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
     			mounted = false;
-    			dispose();
+    			run_all(dispose);
     		}
     	};
 
@@ -410,6 +446,7 @@ var app = (function () {
 
     function instance($$self, $$props, $$invalidate) {
     	let text = "";
+    	let number = 0;
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -419,22 +456,28 @@ var app = (function () {
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("_6_InputBinding", $$slots, []);
 
-    	function input_input_handler() {
+    	function input0_input_handler() {
     		text = this.value;
     		$$invalidate(0, text);
     	}
 
-    	$$self.$capture_state = () => ({ text });
+    	function input1_input_handler() {
+    		number = to_number(this.value);
+    		$$invalidate(1, number);
+    	}
+
+    	$$self.$capture_state = () => ({ text, number });
 
     	$$self.$inject_state = $$props => {
     		if ("text" in $$props) $$invalidate(0, text = $$props.text);
+    		if ("number" in $$props) $$invalidate(1, number = $$props.number);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [text, input_input_handler];
+    	return [text, number, input0_input_handler, input1_input_handler];
     }
 
     class _6_InputBinding extends SvelteComponentDev {
