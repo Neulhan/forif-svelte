@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+/* Variables */
+//window size
+$breakpoint-desktop: 781px;
+$breakpoint-mobile: 780px;
+
+//default-setting
+$main-color: #28303b;
+$sub-main-color: #3681ff;
+
+//color
+$color-bg: #fafafa;
+$color-white: #ffffff;
+$color-gray-50: #f7f8f9;
+$color-gray-60: #f5f6f7;
+$color-gray-70: #f1f2f3;
+$color-gray-100: #e6e6e6;
+$color-gray-200: #c9cdd2;
+$color-gray-400: #9ea4aa;
+$color-gray-450: #888888;
+$color-gray-500: #72787f;
+$color-gray-600: #454c53;
+$color-gray-800: #292931;
+$color-gray-900: #1b1d1f;
+$color-gray-950: #040103;
+$color-black: #000000;
+$color-lightgreen: #00d563;
+$color-navy: #54688d;
+$color-bg: #fafafa;
+
+//element
+
+/* End: Variables */
+
+@mixin ellipsis($line-num: 1) {
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line-num;
+  word-break: break-word;
+}
+
+//when: flexbox 사용시
+@mixin custom-flex($align, $justify, $direction: row, $wrap: wrap) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+@mixin custom-modal(
+  $width,
+  $height,
+  $back-color: rgba(0, 0, 0, 0.7),
+  $modal-color: white,
+  $radius: 7px
+) {
+  @include custom-box(100vw, 100vh, $back-color, 0);
+  @include custom-flex(center, center);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  &.dp-none {
+    display: none;
+  }
+
+  .modal {
+    @include custom-box($width, $height, $modal-color, $radius);
+  }
+}
+
+/* End: Mixins */
