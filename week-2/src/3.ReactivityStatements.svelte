@@ -1,7 +1,7 @@
 <script>
   let count = 0;
   $: double = count * 2;
-  $: console.log(count);
+  // $: console.log(count);
   $: if (count >= 7) {
     alert("초과!");
     count = 0;
@@ -12,7 +12,6 @@
 </script>
 
 <style>
-
 </style>
 
 <div class="container">

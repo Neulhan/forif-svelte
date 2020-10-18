@@ -4,12 +4,12 @@
 
   $: {
     arr.push(count);
-    // arr = arr;
+    arr = arr;
     console.log(arr);
   }
 
-  $: sum = arr.reduce((acc, crv) => acc + crv, 0);
-  $: sub = arr.reduce((acc, crv) => acc - crv, 0);
+  $: sum = arr.reduce((result, value) => result + value, 0);
+  $: sub = arr.reduce((result, value) => result - value, 0);
 
   const add = () => {
     count++;
@@ -17,7 +17,6 @@
 </script>
 
 <style>
-
 </style>
 
 <div class="container">

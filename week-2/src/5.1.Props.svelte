@@ -15,7 +15,7 @@
       <Child />
       <Child color="white" />
       <Child backgroundColor="gold" />
-      <Child color="white" backgroundColor="gold" />
+      <Child color="blue" backgroundColor="gold" />
     </div>
   </section>
 </div>

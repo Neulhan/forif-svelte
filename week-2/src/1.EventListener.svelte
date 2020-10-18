@@ -1,21 +1,27 @@
 <script>
   let count = 0;
+
   let scroll = 0;
+
   const client = {
     x: 0,
     y: 0,
   };
-  const add = () => {
+
+  const add = (e) => {
     count++;
   };
-  const minus = () => {
+
+  const minus = (e) => {
     count--;
   };
+
   const scrollNow = (e) => {
     scroll = e.target.scrollTop;
   };
 
   const mouseNow = (e) => {
+    console.log(e);
     client.x = e.clientX;
     client.y = e.clientY;
   };
@@ -62,18 +68,15 @@
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit dolores
         at aperiam ullam, quidem dignissimos inventore animi tempora eum amet in
         vel consequuntur totam quisquam sequi ipsum fugit qui itaque rerum
-        assumenda praesentium possimus.
-        <span>{scroll}</span>
-        Repellendus accusamus odio commodi laudantium adipisci! Illum sunt
-        placeat dignissimos, libero quidem nam ea suscipit aspernatur facere
-        corrupti accusamus sit, nesciunt, voluptatem odit! Aliquid, sequi
-        officia.
+        assumenda praesentium possimus. <span>{scroll}</span> Repellendus accusamus
+        odio commodi laudantium adipisci! Illum sunt placeat dignissimos, libero
+        quidem nam ea suscipit aspernatur facere corrupti accusamus sit, nesciunt,
+        voluptatem odit! Aliquid, sequi officia.
       </article>
 
       <article class="mouse-move" on:mousemove={mouseNow}>
         <div class="location">X: {client.x} Y; {client.y}</div>
       </article>
     </div>
-
   </section>
 </div>

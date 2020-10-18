@@ -94,14 +94,13 @@
 </script>
 
 <style>
-
 </style>
 
 <div class="container">
   <section>
     <h1>#2 Reactivity Declaration</h1>
-    <p>{count}</p>
-    <p>{double}</p>
+    <p>횟수: {count}</p>
+    <p>횟수*2: {double}</p>
     <button
       on:click={() => {
         count++;
@@ -167,8 +166,8 @@
     console.log(arr);
   }
 
-  $: sum = arr.reduce((acc, crv) => acc + crv, 0);
-  $: sub = arr.reduce((acc, crv) => acc - crv, 0);
+  $: sum = arr.reduce((result, value) => result + value, 0);
+  $: sub = arr.reduce((result, value) => result - value, 0);
 
   const add = () => {
     count++;

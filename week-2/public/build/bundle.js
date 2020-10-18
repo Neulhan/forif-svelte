@@ -1,5 +1,5 @@
 
-(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35730/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
 var app = (function () {
     'use strict';
 
@@ -338,7 +338,7 @@ var app = (function () {
     			attr_dev(div, "class", "element svelte-1ky7sg7");
     			set_style(div, "background-color", /*backgroundColor*/ ctx[1]);
     			set_style(div, "color", /*color*/ ctx[0]);
-    			add_location(div, file, 17, 0, 268);
+    			add_location(div, file, 17, 0, 278);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -375,7 +375,7 @@ var app = (function () {
     }
 
     function instance($$self, $$props, $$invalidate) {
-    	let { color } = $$props;
+    	let { color = "black" } = $$props;
     	let { backgroundColor = "red" } = $$props;
     	const writable_props = ["color", "backgroundColor"];
 
@@ -416,13 +416,6 @@ var app = (function () {
     			options,
     			id: create_fragment.name
     		});
-
-    		const { ctx } = this.$$;
-    		const props = options.props || {};
-
-    		if (/*color*/ ctx[0] === undefined && !("color" in props)) {
-    			console.warn("<_5_2_Child> was created without expected prop 'color'");
-    		}
     	}
 
     	get color() {
@@ -472,7 +465,7 @@ var app = (function () {
     		});
 
     	child3 = new _5_2_Child({
-    			props: { color: "white", backgroundColor: "gold" },
+    			props: { color: "blue", backgroundColor: "gold" },
     			$$inline: true
     		});
 
