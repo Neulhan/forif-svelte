@@ -1,5 +1,5 @@
 <script>
-  import countStore from "./countStore";
+  import { countStore } from "./store";
 
   import Controler from "./3.1.store.set.update.svelte";
   console.log(countStore); //  {set: ƒ, update: ƒ, subscribe: ƒ}
@@ -30,6 +30,7 @@
   <div class="wrapper">
     <h1>STORE</h1>
     {count_subscribe}
+    {$countStore}
     <Controler />
   </div>
 </div>

@@ -1,5 +1,5 @@
 <script>
-  import textStore from "./textStore";
+  import { textStore } from "./store";
 
   import StoreInput from "./4.1.store.binding.child.svelte";
 </script>

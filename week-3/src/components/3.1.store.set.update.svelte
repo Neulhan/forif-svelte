@@ -1,5 +1,5 @@
 <script>
-  import countStore from "./countStore";
+  import { countStore } from "./store";
 
   const add = () => {
     countStore.update((value) => value + 1);
