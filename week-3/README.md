@@ -228,7 +228,7 @@ SPA는 페이지 전환을 할 때 페이지 전체를 로드하지 않고, 페�
 ### 설치
 
 ```bash
-npm i svelte-router
+npm i svelte-routing
 ```
 
 ### 설정
@@ -275,3 +275,13 @@ npm i svelte-router
   </div>
 </Router>
 ```
+
+# 과제
+
+## TODO list 만들기
+
+https://neulhan.github.io/svelte-todo-example/
+
+# 다음주
+
+slot / lifecycle / api request /
