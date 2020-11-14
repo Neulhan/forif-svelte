@@ -1,0 +1,14 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "3.svelte",
+    "Main.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  import { navigate } from \"svelte-routing\";\n  import axios from \"axios\";\n  let title;\n  let content;\n\n  const submit = async () => {\n    try {\n      const res = await axios.post(\"http://127.0.0.1:8080/post/create\", {\n        title,\n        content,\n      });\n      navigate(\"/second\");\n    } catch (e) {\n      console.log(e);\n    }\n  };\n</script>\n\n<style lang=\"scss\">/* Variables */\n/* End: Variables */\n/* End: Mixins */\n.create-post-wrapper {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: row;\n  flex-wrap: wrap; }\n  .create-post-wrapper .container {\n    width: 600px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: column;\n    flex-wrap: wrap; }\n    .create-post-wrapper .container input,\n    .create-post-wrapper .container textarea,\n    .create-post-wrapper .container button {\n      width: 100%; }\n</style>\n\n<div class=\"create-post-wrapper\">\n  <div class=\"container\">\n    <h1>블로그 글 작성하기</h1>\n    <input bind:value={title} type=\"text\" />\n    <textarea bind:value={content} name=\"\" id=\"\" cols=\"30\" rows=\"10\" />\n    <button on:click={submit}>글 쓰기</button>\n  </div>\n</div>\n",
+    "<style lang=\"scss\">/* Variables */\n/* End: Variables */\n/* End: Mixins */\n.container {\n  width: 100%;\n  min-height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: row;\n  flex-wrap: wrap; }\n  .container p {\n    font-size: 124px;\n    font-weight: 900; }\n</style>\n\n<div class=\"container\">\n  <p>🍺 I'm good to go</p>\n</div>\n"
+  ],
+  "names": [],
+  "mappings": "AAsBA,oBAAoB,4BAAC,CAAC,AACpB,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,CACZ,OAAO,CAAE,IAAI,CACb,WAAW,CAAE,MAAM,CACnB,eAAe,CAAE,MAAM,CACvB,cAAc,CAAE,GAAG,CACnB,SAAS,CAAE,IAAI,AAAE,CAAC,AAClB,kCAAoB,CAAC,UAAU,cAAC,CAAC,AAC/B,KAAK,CAAE,KAAK,CACZ,OAAO,CAAE,IAAI,CACb,WAAW,CAAE,MAAM,CACnB,eAAe,CAAE,MAAM,CACvB,cAAc,CAAE,MAAM,CACtB,SAAS,CAAE,IAAI,AAAE,CAAC,AAClB,kCAAoB,CAAC,UAAU,CAAC,mBAAK,CACrC,kCAAoB,CAAC,UAAU,CAAC,sBAAQ,CACxC,kCAAoB,CAAC,UAAU,CAAC,MAAM,cAAC,CAAC,AACtC,KAAK,CAAE,IAAI,AAAE,CAAC;ACrCpB,UAAU,4BAAC,CAAC,AACV,KAAK,CAAE,IAAI,CACX,UAAU,CAAE,IAAI,CAChB,OAAO,CAAE,IAAI,CACb,WAAW,CAAE,MAAM,CACnB,eAAe,CAAE,MAAM,CACvB,cAAc,CAAE,GAAG,CACnB,SAAS,CAAE,IAAI,AAAE,CAAC,AAClB,wBAAU,CAAC,CAAC,cAAC,CAAC,AACZ,SAAS,CAAE,KAAK,CAChB,WAAW,CAAE,GAAG,AAAE,CAAC"
+}
